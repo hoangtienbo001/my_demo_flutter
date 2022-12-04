@@ -1,3 +1,4 @@
+import 'package:demo1_flutter/home/food_page_body.dart';
 import 'package:demo1_flutter/static/colors.dart';
 import 'package:demo1_flutter/widgets/big_text.dart';
 import 'package:demo1_flutter/widgets/small_text.dart';
@@ -36,7 +37,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       children: [
                         SmallText(text: 'Narsinqdi'),
                         Icon(Icons.arrow_drop_down_rounded)
-                        ],
+                      ],
                     )
                   ],
                 ),
@@ -57,6 +58,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
             ),
           ),
         ),
+        FoodPageBody(),
       ],
     ));
   }
