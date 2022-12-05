@@ -9,13 +9,17 @@ class SlideHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 320,
+      child: Container(
         height: 320,
         child: PageView.builder(
           itemCount: 5,
           itemBuilder: (context, position) {
             return _buildPageItem(position);
           },
-        ));
+        ),
+      ),
+    );
   }
 
   Widget _buildPageItem(int index) {
@@ -23,9 +27,10 @@ class SlideHomePage extends StatelessWidget {
       height: 220,
       margin: EdgeInsets.only(right: 5, left: 5),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: index.isEven ? AppColors.mainColor : AppColors.textColor,
-          image: DecorationImage(image: AssetImage('asset/images/anh0.jpg'))),
+        borderRadius: BorderRadius.circular(30),
+        color: index.isEven ? AppColors.mainColor : AppColors.textColor,
+        // image: DecorationImage(image: AssetImage('asset/images/anh0.jpg'))
+      ),
     );
   }
 }
