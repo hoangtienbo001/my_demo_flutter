@@ -2,8 +2,10 @@ import 'package:demo1_flutter/static/colors.dart';
 import 'package:demo1_flutter/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-
+import 'package:demo1_flutter/network/network_request.dart';
+import '../model/park.dart';
 import '../widgets/big_text.dart';
+import 'dart:developer';
 
 class ParkingDetailScreem extends StatefulWidget {
   const ParkingDetailScreem({super.key});
@@ -13,6 +15,20 @@ class ParkingDetailScreem extends StatefulWidget {
 }
 
 class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
+  List<Park> parkData = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    NetworkRequest.fetchParks().then((dataFromServer) {
+      parkData = dataFromServer;
+    });
+  }
+
+// log(parkData);
+  // print(parkData);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +65,24 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
           Container(
             child: _renderInfor('Parking Lot of San Manolia',
                 '97-HangTien-HaNoi', true, 'hello', '11h', 200),
+          ),
+          Container(
+            child: Column(children: [
+              Expanded(
+                  child: ListView.builder(
+                itemBuilder: ((context, index) {
+                  return Card(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        children: [Text('${parkData[index].name}')],
+                      ),
+                    ),
+                  );
+                }),
+                itemCount: parkData.length,
+              ))
+            ]),
           )
         ],
       ),
@@ -58,7 +92,7 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
   // Widget handle render slide
   Widget _buildPageItem(int index) {
     return Container(
-      height: 220,
+      height: 100,
       margin: EdgeInsets.only(right: 5, left: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -72,7 +106,7 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
   Widget _renderInfor(String title, String localtion, bool bookmark,
       String description, String timeValid, double value) {
     return Container(
-      height: 500,
+      height: 200,
       child: Column(
         children: [
           Container(
@@ -82,10 +116,7 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(children: [
-                  BigText(
-                    size: 18,
-                    text: title,
-                  ),
+                Text('ad'),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: SmallText(
