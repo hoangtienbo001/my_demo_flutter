@@ -54,21 +54,21 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
                 ],
               )),
           // slide
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Container(
-              height: 200,
-              margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: PageView.builder(
-                itemCount: 5,
-                itemBuilder: (context, position) {
-                  return _buildPageItem(position);
-                },
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(bottom: 20),
+          //   child: Container(
+          //     height: 200,
+          //     margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+          //     child: PageView.builder(
+          //       itemCount: 5,
+          //       itemBuilder: (context, position) {
+          //         return _buildPageItem(position);
+          //       },
+          //     ),
+          //   ),
+          // ),
           Container(
-            height: 400,
+            height: 700,
             child: Column(children: [
               Expanded(
                   child: ListView.builder(

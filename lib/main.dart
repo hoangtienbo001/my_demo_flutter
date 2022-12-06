@@ -1,4 +1,4 @@
-import 'package:demo1_flutter/screems/park/park_list.dart';
+import 'package:demo1_flutter/screems/park/park_detail_1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,6 +23,6 @@ class MyApp extends StatelessWidget {
         ),
         home:
             // ParkingDetailScreem()
-            ParkList());
+            ParkDetail1());
   }
 }
