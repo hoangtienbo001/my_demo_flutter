@@ -13,6 +13,8 @@ class ParkDetail1 extends StatefulWidget {
 }
 
 class _ParkDetail1State extends State<ParkDetail1> {
+  String text = 'Text';
+
   // Widget handle render slide
   Widget _buildPageItem(int index) {
     return Container(
@@ -24,6 +26,21 @@ class _ParkDetail1State extends State<ParkDetail1> {
         // image: DecorationImage(image: AssetImage('assets/image/anh2.png'))
       ),
     );
+  }
+
+  void _awaitReturnValueFromSecondScreen(BuildContext context) async {
+    // start the SecondScreen and wait for it to finish with a result
+    final result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ParkingDetailScreem(),
+        ));
+
+    // after the SecondScreen result comes back update the Text widget with it
+    setState(() {
+      text = result;
+    });
+    debugPrint('text :${text}');
   }
 
   @override
@@ -57,7 +74,7 @@ class _ParkDetail1State extends State<ParkDetail1> {
                   // height: 10,
                   child: Column(
                 children: [
-                  BigText(text: 'Details'),
+                  BigText(text: '$text'),
                   // slide
                   Container(
                     height: 200,
@@ -85,11 +102,12 @@ class _ParkDetail1State extends State<ParkDetail1> {
                   // style: TextStyle(fontSize: 24),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ParkingDetailScreem(),
-                      ));
+                  _awaitReturnValueFromSecondScreen(context);
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => ParkingDetailScreem(),
+                  //     ));
                 },
               ),
             )

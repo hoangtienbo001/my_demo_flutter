@@ -22,6 +22,13 @@ class ParkingDetailScreem extends StatefulWidget {
 class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
   List<Park> parkData = List.empty();
 
+  TextEditingController textFieldController = TextEditingController();
+
+  void _sendDataBack(BuildContext context) {
+    String textToSendBack = textFieldController.text;
+    Navigator.pop(context, textToSendBack);
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -68,7 +75,7 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
           //   ),
           // ),
           Container(
-            height: 700,
+            height: 500,
             child: Column(children: [
               Expanded(
                   child: ListView.builder(
@@ -94,6 +101,29 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
                         );
                       })))
             ]),
+          ),
+          Container(
+            child: Column(
+              children: [
+                TextField(
+                  controller: textFieldController,
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.blueAccent,
+                      height: 1,
+                      backgroundColor: Colors.amber),
+                ),
+                ElevatedButton(
+                  child: Text(
+                    'Send text back',
+                    style: TextStyle(fontSize: 10),
+                  ),
+                  onPressed: () {
+                    _sendDataBack(context);
+                  },
+                )
+              ],
+            ),
           )
         ],
       ),
