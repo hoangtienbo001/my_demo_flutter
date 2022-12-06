@@ -1,4 +1,4 @@
-import 'package:demo1_flutter/home/slide_home_page.dart';
+// import 'package:demo1_flutter/home/slide_home_page.dart';
 import 'package:demo1_flutter/static/colors.dart';
 import 'package:demo1_flutter/widgets/big_text.dart';
 import 'package:demo1_flutter/widgets/small_text.dart';
@@ -58,7 +58,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
             ),
           ),
         ),
-        SlideHomePage(),
+        // SlideHomePage(),
       ],
     ));
   }

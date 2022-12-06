@@ -32,7 +32,7 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('data :${parkData.map((e) => e.name)}');
+    debugPrint('data :${parkData.map((e) => e.image)}');
     return Scaffold(
       body: Column(
         // main content
@@ -50,17 +50,17 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
                 ],
               )),
           // slide
-          Container(
-            height: 200,
-            // decoration: BoxDecoration(
-            //     color: AppColors.mainColor,
-            //     borderRadius: BorderRadius.circular(15)),
-            margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-            child: PageView.builder(
-              itemCount: 5,
-              itemBuilder: (context, position) {
-                return _buildPageItem(position);
-              },
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: Container(
+              height: 200,
+              margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+              child: PageView.builder(
+                itemCount: 5,
+                itemBuilder: (context, position) {
+                  return _buildPageItem(position);
+                },
+              ),
             ),
           ),
           Container(
@@ -75,49 +75,22 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
                             padding: EdgeInsets.all(10),
                             child: Column(children: [
                               Text('${parkData[index].name}'),
-                              Text('${parkData[index].description}')
+                              Text('${parkData[index].description}'),
+                              Container(
+                                  height: 200,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        alignment: Alignment(-.2, 0),
+                                        fit: BoxFit.cover,
+                                        image: NetworkImage(
+                                            ('${parkData[index].image}'))),
+                                  ))
                             ]),
                           ),
                         );
                       })))
             ]),
           )
-          // render item
-          // Container(
-          //   child: _renderInfor('Parking Lot of San Manolia',
-          //       '97-HangTien-HaNoi', true, 'hello', '11h', 200),
-          // ),
-          // Container(
-          //   child: Column(children: [
-          //     Expanded(
-          //         child: ListView.builder(
-          //       itemBuilder: ((context, index) {
-          //         return Card(
-          //           child: Padding(
-          //             padding: EdgeInsets.all(10),
-          //             child: Column(
-          //               children: [Text('${parkData[index].name}')],
-          //             ),
-          //           ),
-          //         );
-          //       }),
-          //       itemCount: parkData.length,
-          //     ))
-          //   ]),
-          // )
-          // Container(
-          //   height: 50,
-          //   child: FutureBuilder<Park>(builder: (context, snapshot) {
-          //     if (snapshot.hasData) {
-          //       return Text(snapshot.data!.name == null ? 'ko' : 'co');
-          //     } else if (snapshot.hasError) {
-          //       return Text('${snapshot.error}');
-          //     }
-
-          //     // By default, show a loading spinner.
-          //     return const CircularProgressIndicator();
-          //   }),
-          // )
         ],
       ),
     );
@@ -131,7 +104,7 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: index.isEven ? AppColors.mainColor : AppColors.textColor,
-        // image: DecorationImage(image: AssetImage('asset/images/anh0.jpg'))
+        // image: DecorationImage(image: AssetImage('assets/image/anh2.png'))
       ),
     );
   }
