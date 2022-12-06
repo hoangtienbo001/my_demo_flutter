@@ -1,4 +1,4 @@
-import 'package:demo1_flutter/screems/parking_detail_screem.dart';
+import 'package:demo1_flutter/screems/park/park_list.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,6 +21,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ParkingDetailScreem());
+        home:
+            // ParkingDetailScreem()
+            ParkList());
   }
 }

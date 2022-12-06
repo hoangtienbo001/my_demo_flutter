@@ -4,9 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../model/park.dart';
-import '../network/network_request.dart';
-import '../widgets/big_text.dart';
+import '../../model/park.dart';
+import '../../network/network_request.dart';
+import '../../widgets/big_text.dart';
+
+// import '../model/park.dart';
+// import '../network/network_request.dart';
+// import '../widgets/big_text.dart';
 
 class ParkingDetailScreem extends StatefulWidget {
   const ParkingDetailScreem({super.key});
