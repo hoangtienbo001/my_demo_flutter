@@ -62,9 +62,9 @@ class _ParkDetail1State extends State<ParkDetail1> {
               decoration: BoxDecoration(
                 color: AppColors.mainColor,
                 borderRadius: BorderRadius.circular(15),
-                // image: DecorationImage(
-                //     image: AssetImage('assets/image/anh2.png'),
-                //     fit: BoxFit.cover),
+                image: DecorationImage(
+                    image: AssetImage('assets/image/map.jpg'),
+                    fit: BoxFit.cover),
               ),
             ),
             //*details*
