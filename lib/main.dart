@@ -1,10 +1,14 @@
 import 'package:demo1_flutter/screems/parking_detail_screem.dart';
 import 'package:flutter/material.dart';
 
-import 'model/park.dart';
-
 void main() {
   runApp(const MyApp());
+  // var myCustomObject = ParkingDetailScreem();
+  // developer.log(
+  //   'log me',
+  //   name: 'my.app.category',
+  //   error: jsonEncode(myCustomObject),
+  // );
 }
 
 class MyApp extends StatelessWidget {

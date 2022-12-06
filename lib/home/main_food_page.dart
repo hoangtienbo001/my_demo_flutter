@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import 'package:demo1_flutter/home/food_page_body.dart';
-=======
 import 'package:demo1_flutter/home/slide_home_page.dart';
->>>>>>> e2b77a3b149f755f591ee0a90d30a324b098da02
 import 'package:demo1_flutter/static/colors.dart';
 import 'package:demo1_flutter/widgets/big_text.dart';
 import 'package:demo1_flutter/widgets/small_text.dart';
@@ -62,11 +58,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
             ),
           ),
         ),
-<<<<<<< HEAD
-        FoodPageBody(),
-=======
         SlideHomePage(),
->>>>>>> e2b77a3b149f755f591ee0a90d30a324b098da02
       ],
     ));
   }
