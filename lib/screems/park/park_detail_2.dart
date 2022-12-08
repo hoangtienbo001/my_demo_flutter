@@ -49,17 +49,17 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
         // main content
         children: [
           // title
-          Container(
-              margin: EdgeInsets.only(top: 50),
-              child: Row(
-                children: [
-                  Icon(Icons.arrow_left),
-                  BigText(
-                    text: 'Narsinqdi',
-                    color: AppColors.textColor,
-                  ),
-                ],
-              )),
+          // Container(
+          //     margin: EdgeInsets.only(top: 50),
+          //     child: Row(
+          //       children: [
+          //         Icon(Icons.arrow_left),
+          //         BigText(
+          //           text: 'Narsinqdi',
+          //           color: AppColors.textColor,
+          //         ),
+          //       ],
+          //     )),
           // slide
           // Padding(
           //   padding: const EdgeInsets.only(bottom: 20),
@@ -75,7 +75,7 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
           //   ),
           // ),
           Container(
-            height: 500,
+            height: 300,
             child: Column(children: [
               Expanded(
                   child: ListView.builder(
@@ -102,29 +102,29 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
                       })))
             ]),
           ),
-          Container(
-            child: Column(
-              children: [
-                TextField(
-                  controller: textFieldController,
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.blueAccent,
-                      height: 1,
-                      backgroundColor: Colors.amber),
-                ),
-                ElevatedButton(
-                  child: Text(
-                    'Send text back',
-                    style: TextStyle(fontSize: 10),
-                  ),
-                  onPressed: () {
-                    _sendDataBack(context);
-                  },
-                )
-              ],
-            ),
-          )
+          // Container(
+          //   child: Column(
+          //     children: [
+          //       TextField(
+          //         controller: textFieldController,
+          //         style: TextStyle(
+          //             fontSize: 15,
+          //             color: Colors.blueAccent,
+          //             height: 1,
+          //             backgroundColor: Colors.amber),
+          //       ),
+          //       ElevatedButton(
+          //         child: Text(
+          //           'Send text back',
+          //           style: TextStyle(fontSize: 10),
+          //         ),
+          //         onPressed: () {
+          //           _sendDataBack(context);
+          //         },
+          //       )
+          //     ],
+          //   ),
+          // )
         ],
       ),
     );
