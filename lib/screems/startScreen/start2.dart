@@ -22,33 +22,89 @@ class Start2 extends StatelessWidget {
             decoration: BoxDecoration(),
             child: BigText(text: 'start creen 2'),
           ),
-          Align(
-            alignment: const Alignment(0.0, 1.0),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('$Home');
-              },
-              child: Text('NEXT'),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(AppColors.mainColor),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(38),
+          // Align(
+          //   alignment: const Alignment(0.0, 1.0),
+          //   child: ElevatedButton(
+          //     onPressed: () {
+          //       Navigator.of(context).pushNamed('$Home');
+          //     },
+          //     child: Text('NEXT'),
+          //     style: ButtonStyle(
+          //       backgroundColor: MaterialStateProperty.all(AppColors.mainColor),
+          //       shape: MaterialStateProperty.all(
+          //         RoundedRectangleBorder(
+          //           borderRadius: BorderRadius.circular(38),
+          //         ),
+          //       ),
+          //       elevation: MaterialStateProperty.all(0),
+          //       fixedSize: MaterialStateProperty.all(
+          //         Size(
+          //           size.width,
+          //           size.height * 0.065,
+          //         ),
+          //       ),
+          //       foregroundColor: MaterialStateProperty.all(kColorDarkGrey),
+          //       textStyle: MaterialStateProperty.all(
+          //         PrimaryFont.medium(size.height * 0.015),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('$Home');
+                },
+                child: Text('NEXT'),
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(AppColors.mainColor),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(38),
+                    ),
                   ),
-                ),
-                elevation: MaterialStateProperty.all(0),
-                fixedSize: MaterialStateProperty.all(
-                  Size(
-                    size.width * 0.9,
-                    size.height * 0.065,
+                  elevation: MaterialStateProperty.all(0),
+                  fixedSize: MaterialStateProperty.all(
+                    Size(
+                      size.width * 0.1,
+                      size.height * 0.01,
+                    ),
                   ),
-                ),
-                foregroundColor: MaterialStateProperty.all(kColorDarkGrey),
-                textStyle: MaterialStateProperty.all(
-                  PrimaryFont.medium(size.height * 0.015),
+                  foregroundColor: MaterialStateProperty.all(kColorDarkGrey),
+                  textStyle: MaterialStateProperty.all(
+                    PrimaryFont.medium(size.height * 0.015),
+                  ),
                 ),
               ),
-            ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('BACK'),
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(AppColors.mainColor),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(38),
+                    ),
+                  ),
+                  elevation: MaterialStateProperty.all(0),
+                  fixedSize: MaterialStateProperty.all(
+                    Size(
+                      size.width * 0.1,
+                      size.height * 0.01,
+                    ),
+                  ),
+                  foregroundColor: MaterialStateProperty.all(kColorDarkGrey),
+                  textStyle: MaterialStateProperty.all(
+                    PrimaryFont.medium(size.height * 0.015),
+                  ),
+                ),
+              ),
+            ],
           )
         ],
       ),

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../../static/colors.dart';
 import '../../utils/theme.dart';
-import '../../widgets/basic_button.dart';
 
 class Start1 extends StatelessWidget {
   const Start1({super.key});
@@ -26,20 +26,30 @@ class Start1 extends StatelessWidget {
         ),
         Align(
           alignment: const Alignment(0.0, 1.0),
-          child: BasicButton(
-            fixedSize: MaterialStateProperty.all(
-              Size(
-                size.width * 0.9,
-                size.height * 0.065,
-              ),
-            ),
-            textStyle: MaterialStateProperty.all(
-              PrimaryFont.medium(size.height * 0.015),
-            ),
-            text: 'NEXT',
+          child: ElevatedButton(
             onPressed: () {
               Navigator.of(context).pushNamed('$Start2');
             },
+            child: Text('NEXT'),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(AppColors.mainColor),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(38),
+                ),
+              ),
+              elevation: MaterialStateProperty.all(0),
+              fixedSize: MaterialStateProperty.all(
+                Size(
+                  size.width * 0.1,
+                  size.height * 0.01,
+                ),
+              ),
+              foregroundColor: MaterialStateProperty.all(kColorDarkGrey),
+              textStyle: MaterialStateProperty.all(
+                PrimaryFont.medium(size.height * 0.015),
+              ),
+            ),
           ),
         )
       ]),

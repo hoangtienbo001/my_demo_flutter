@@ -23,7 +23,7 @@ class BasicButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        Navigator.of(context).pushNamed('$Start2');
+       
       },
       child: Text('$text'),
       style: ButtonStyle(
