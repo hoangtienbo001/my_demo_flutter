@@ -7,6 +7,7 @@ import 'package:demo1_flutter/screems/park/park_detail_2.dart';
 import 'package:demo1_flutter/screems/park/park_list.dart';
 import 'package:demo1_flutter/screems/profile/profile.dart';
 import 'package:demo1_flutter/screems/setting/setting.dart';
+import 'package:demo1_flutter/widgets/tabbar.dart';
 import 'package:flutter/material.dart';
 
 import 'screems/startScreen/start1.dart';
@@ -40,20 +41,21 @@ class _HomePagesState extends State<HomePages> {
       home: DefaultTabController(
         child: Scaffold(
           appBar: AppBar(
-            bottom: TabBar(tabs: [
-              Tab(icon: Icon(Icons.directions_railway),
-              ),
-              Tab(icon: Icon(Icons.directions_subway),
-              ),
-              Tab(icon: Icon(Icons.directions_bike),
-              )
-            ]),
-            title: Text('TabBar View'),
-          ),
+              bottom: TabBar(tabs: [
+                Tab(icon: Icon(Icons.person_add),
+                ),
+                Tab(icon: Icon(Icons.settings),
+                ),
+                Tab(icon: Icon(Icons.chat),
+                )
+              ]),
+              title: Text('App nonon'),
+            ),
           body: PageStorage(
             child: currentScreen,
             bucket: bucket,
           ),
+          // body: Tabbar(),
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
             // button o giua
