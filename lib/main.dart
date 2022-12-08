@@ -1,5 +1,7 @@
 //--no-sound-null-safety
+import 'package:demo1_flutter/screems/home/home.dart';
 import 'package:demo1_flutter/screems/park/park_detail_1.dart';
+import 'package:demo1_flutter/screems/park/park_list.dart';
 import 'package:flutter/material.dart';
 
 import 'screems/startScreen/start1.dart';
@@ -33,8 +35,10 @@ class MyApp extends StatelessWidget {
         // '$GetStartedPage': (_) => const GetStartedPage(),
         // '$ChooseTopicPage': (_) => const ChooseTopicPage(),
         // '$RemindersPage': (_) => const RemindersPage(),
+        '$Home': (_) => const Home(),
         '$Start1': (_) => const Start1(),
         '$Start2': (_) => const Start2(),
+        '$Parklist': (_) => const Parklist(),
       },
     );
   }

@@ -1,3 +1,4 @@
+import 'package:demo1_flutter/static/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -5,11 +6,15 @@ import '../screems/startScreen/start2.dart';
 import '../utils/theme.dart';
 
 class BasicButton extends StatelessWidget {
-  const BasicButton({
-    Key? key,
-    this.fixedSize,
-    this.textStyle,
-  }) : super(key: key);
+  final String text;
+
+  const BasicButton(
+      {Key? key,
+      this.fixedSize,
+      this.textStyle,
+      required this.text,
+      required Null Function() onPressed})
+      : super(key: key);
 
   final MaterialStateProperty<Size>? fixedSize;
   final MaterialStateProperty<TextStyle>? textStyle;
@@ -20,9 +25,9 @@ class BasicButton extends StatelessWidget {
       onPressed: () {
         Navigator.of(context).pushNamed('$Start2');
       },
-      child: const Text('GET STARTED'),
+      child: Text('$text'),
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(kColorLightGrey),
+        backgroundColor: MaterialStateProperty.all(AppColors.mainColor),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(38),

@@ -1,4 +1,5 @@
 import 'package:demo1_flutter/static/colors.dart';
+import 'package:demo1_flutter/widgets/big_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -17,7 +18,9 @@ class _ParklistState extends State<Parklist> {
       body: Column(
         children: [
           Container(
+            height: 200,
             decoration: BoxDecoration(color: AppColors.mainColor),
+            child: BigText(text: 'PARKK LIST'),
           )
         ],
       ),
