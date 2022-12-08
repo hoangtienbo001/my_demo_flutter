@@ -41,16 +41,28 @@ class _HomePagesState extends State<HomePages> {
       home: DefaultTabController(
         child: Scaffold(
           appBar: AppBar(
-              bottom: TabBar(tabs: [
-                Tab(icon: Icon(Icons.person_add),
-                ),
-                Tab(icon: Icon(Icons.settings),
-                ),
-                Tab(icon: Icon(Icons.chat),
-                )
-              ]),
-              title: Text('App nonon'),
-            ),
+            title: Text('Amon App'),
+          ),
+          drawer: Drawer(
+              child: SafeArea(
+            child: Column(children: [
+              ListTile(
+                leading: Icon(Icons.dashboard),
+                title: Text('Dashboard'),
+                onTap: () {
+                  // print('tab aa');
+              Navigator.of(context).pushNamed('$ParkingDetailScreem');
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.chat),
+                title: Text('Chat'),
+                onTap: () {
+                  print('chat');
+                },
+              )
+            ]),
+          )),
           body: PageStorage(
             child: currentScreen,
             bucket: bucket,
@@ -211,12 +223,16 @@ class MyApp extends StatelessWidget {
       ),
       home: HomePages(),
       // initialRoute: '$Start1',
-      // routes: {
-      //   '$Home': (_) => const Home(),
-      //   '$Start1': (_) => const Start1(),
-      //   '$Start2': (_) => const Start2(),
-      //   '$Parklist': (_) => const Parklist(),
-      // },
+      routes: {
+        '$Home': (_) => const Home(),
+        '$Start1': (_) => const Start1(),
+        '$Start2': (_) => const Start2(),
+        '$Parklist': (_) => const Parklist(),
+        '$Dashboard': (_) => const Dashboard(),
+        '$ParkingDetailScreem': (_) => const ParkingDetailScreem(),
+
+
+      },
     );
   }
 }
