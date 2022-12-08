@@ -12,7 +12,7 @@ class Start2 extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 200,
+            // height: 200,
             decoration: BoxDecoration(color: AppColors.mainColor),
             child: BigText(text: 'start creen 2'),
           ),
