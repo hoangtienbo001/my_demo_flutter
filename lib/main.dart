@@ -1,6 +1,9 @@
+//--no-sound-null-safety
 import 'package:demo1_flutter/screems/park/park_detail_1.dart';
-import 'package:demo1_flutter/screems/park/park_detail_2.dart';
 import 'package:flutter/material.dart';
+
+import 'screems/startScreen/start1.dart';
+import 'screems/startScreen/start2.dart';
 
 void main() {
   // DevicePreview(
@@ -8,7 +11,7 @@ void main() {
   //   builder: ((context) => const MyApp()),
   // );
   runApp(const MyApp());
-  var myCustomObject = ParkingDetailScreem();
+  // var myCustomObject = ParkingDetailScreem();
 }
 
 class MyApp extends StatelessWidget {
@@ -17,15 +20,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        // useInheritedMediaQuery: true,
-        // locale: DevicePreview.locale(context),
-        // builder: DevicePreview.appBuilder,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home:
-            // ParkingDetailScreem()
-            ParkDetail1());
+      // useInheritedMediaQuery: true,
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: ParkDetail1(),
+      initialRoute: '$Start1',
+      routes: {
+        // '$GetStartedPage': (_) => const GetStartedPage(),
+        // '$ChooseTopicPage': (_) => const ChooseTopicPage(),
+        // '$RemindersPage': (_) => const RemindersPage(),
+        '$Start1': (_) => const Start1(),
+        '$Start2': (_) => const Start2(),
+      },
+    );
   }
 }
