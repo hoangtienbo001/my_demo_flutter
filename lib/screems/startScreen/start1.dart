@@ -18,10 +18,10 @@ class Start1 extends StatelessWidget {
       body: Column(children: [
         // Header(),
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.only(top: 50),
           child: Container(
             height: 500,
-            child: BigText(text: 'start screem 1'),
+            child: BigText(text: 'Wellcome'),
           ),
         ),
         Align(
@@ -30,7 +30,7 @@ class Start1 extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pushNamed('$Start2');
             },
-            child: Text('NEXT'),
+            child: Text('Next to continue'),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(AppColors.mainColor),
               shape: MaterialStateProperty.all(
@@ -41,7 +41,7 @@ class Start1 extends StatelessWidget {
               elevation: MaterialStateProperty.all(0),
               fixedSize: MaterialStateProperty.all(
                 Size(
-                  size.width * 0.1,
+                  size.width * 0.5,
                   size.height * 0.01,
                 ),
               ),

@@ -2,12 +2,10 @@
 import 'package:demo1_flutter/screems/chat/chat.dart';
 import 'package:demo1_flutter/screems/dashboard/dashboard.dart';
 import 'package:demo1_flutter/screems/home/home.dart';
-import 'package:demo1_flutter/screems/park/park_detail_1.dart';
 import 'package:demo1_flutter/screems/park/park_detail_2.dart';
 import 'package:demo1_flutter/screems/park/park_list.dart';
 import 'package:demo1_flutter/screems/profile/profile.dart';
 import 'package:demo1_flutter/screems/setting/setting.dart';
-import 'package:demo1_flutter/widgets/tabbar.dart';
 import 'package:flutter/material.dart';
 
 import 'screems/startScreen/start1.dart';
@@ -51,7 +49,7 @@ class _HomePagesState extends State<HomePages> {
                 title: Text('Dashboard'),
                 onTap: () {
                   // print('tab aa');
-              Navigator.of(context).pushNamed('$ParkingDetailScreem');
+                  Navigator.of(context).pushNamed('$ParkingDetailScreem');
                 },
               ),
               ListTile(
@@ -222,16 +220,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomePages(),
-      // initialRoute: '$Start1',
+      initialRoute: '$Start1',
       routes: {
         '$Home': (_) => const Home(),
         '$Start1': (_) => const Start1(),
         '$Start2': (_) => const Start2(),
         '$Parklist': (_) => const Parklist(),
         '$Dashboard': (_) => const Dashboard(),
+        '$HomePages': (_) => const HomePages(),
         '$ParkingDetailScreem': (_) => const ParkingDetailScreem(),
-
-
       },
     );
   }
