@@ -45,87 +45,33 @@ class _ParkingDetailScreemState extends State<ParkingDetailScreem> {
   Widget build(BuildContext context) {
     debugPrint('data :${parkData.map((e) => e.image)}');
     return Scaffold(
-      body: Column(
-        // main content
-        children: [
-          // title
-          // Container(
-          //     margin: EdgeInsets.only(top: 50),
-          //     child: Row(
-          //       children: [
-          //         Icon(Icons.arrow_left),
-          //         BigText(
-          //           text: 'Narsinqdi',
-          //           color: AppColors.textColor,
-          //         ),
-          //       ],
-          //     )),
-          // slide
-          // Padding(
-          //   padding: const EdgeInsets.only(bottom: 20),
-          //   child: Container(
-          //     height: 200,
-          //     margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-          //     child: PageView.builder(
-          //       itemCount: 5,
-          //       itemBuilder: (context, position) {
-          //         return _buildPageItem(position);
-          //       },
-          //     ),
-          //   ),
-          // ),
-          Container(
-            height: 300,
-            child: Column(children: [
-              Expanded(
-                  child: ListView.builder(
-                      itemCount: parkData.length,
-                      itemBuilder: ((context, index) {
-                        return Card(
-                          child: Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(children: [
-                              Text('${parkData[index].name}'),
-                              Text('${parkData[index].description}'),
-                              Container(
-                                  height: 200,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        alignment: Alignment(-.2, 0),
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(
-                                            ('${parkData[index].image}'))),
-                                  ))
-                            ]),
-                          ),
-                        );
-                      })))
-            ]),
-          ),
-          // Container(
-          //   child: Column(
-          //     children: [
-          //       TextField(
-          //         controller: textFieldController,
-          //         style: TextStyle(
-          //             fontSize: 15,
-          //             color: Colors.blueAccent,
-          //             height: 1,
-          //             backgroundColor: Colors.amber),
-          //       ),
-          //       ElevatedButton(
-          //         child: Text(
-          //           'Send text back',
-          //           style: TextStyle(fontSize: 10),
-          //         ),
-          //         onPressed: () {
-          //           _sendDataBack(context);
-          //         },
-          //       )
-          //     ],
-          //   ),
-          // )
-        ],
+      body: Container(
+        // height: 500,
+        child: Column(children: [
+          Expanded(
+              child: ListView.builder(
+                  itemCount: parkData.length,
+                  itemBuilder: ((context, index) {
+                    return Card(
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(children: [
+                          Text('${parkData[index].name}'),
+                          Text('${parkData[index].description}'),
+                          Container(
+                              height: 200,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    alignment: Alignment(-.2, 0),
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(
+                                        ('${parkData[index].image}'))),
+                              ))
+                        ]),
+                      ),
+                    );
+                  })))
+        ]),
       ),
     );
   }
