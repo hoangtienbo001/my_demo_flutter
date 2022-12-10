@@ -31,7 +31,7 @@ class _HomePagesState extends State<HomePages> {
   int currentTab = 0;
   final List<Widget> screens = [Dashboard(), Chat(), Profile(), Setting()];
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = ParkingDetailScreem();
+  Widget currentScreen = Dashboard();
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class _HomePagesState extends State<HomePages> {
                 title: Text('Dashboard'),
                 onTap: () {
                   // print('tab aa');
-                  Navigator.of(context).pushNamed('$ParkingDetailScreem');
+                  Navigator.of(context).pushNamed('$Dashboard');
                 },
               ),
               ListTile(
@@ -87,7 +87,7 @@ class _HomePagesState extends State<HomePages> {
                       MaterialButton(
                         onPressed: () {
                           setState(() {
-                            currentScreen = ParkingDetailScreem();
+                            currentScreen = Dashboard();
                             currentTab = 0;
                           });
                         },
