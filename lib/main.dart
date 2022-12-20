@@ -6,6 +6,7 @@ import 'package:demo1_flutter/screems/park/park_detail_2.dart';
 import 'package:demo1_flutter/screems/park/park_list.dart';
 import 'package:demo1_flutter/screems/profile/profile.dart';
 import 'package:demo1_flutter/screems/setting/setting.dart';
+import 'package:demo1_flutter/widgets/big_text.dart';
 import 'package:flutter/material.dart';
 
 import 'screems/startScreen/start1.dart';
@@ -39,28 +40,33 @@ class _HomePagesState extends State<HomePages> {
       home: DefaultTabController(
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Amon App'),
+            title: BigText(
+              text: 'APP ?',
+              color: Colors.black26,
+            ),
+            // shadowColor: Colors.white,
+            backgroundColor: Colors.white,
           ),
-          drawer: Drawer(
-              child: SafeArea(
-            child: Column(children: [
-              ListTile(
-                leading: Icon(Icons.dashboard),
-                title: Text('Dashboard'),
-                onTap: () {
-                  // print('tab aa');
-                  Navigator.of(context).pushNamed('$Dashboard');
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.chat),
-                title: Text('Chat'),
-                onTap: () {
-                  print('chat');
-                },
-              )
-            ]),
-          )),
+          // drawer: Drawer(
+          //     child: SafeArea(
+          //   child: Column(children: [
+          //     ListTile(
+          //       leading: Icon(Icons.dashboard),
+          //       title: Text('Dashboard'),
+          //       onTap: () {
+          //         // print('tab aa');
+          //         Navigator.of(context).pushNamed('$Dashboard');
+          //       },
+          //     ),
+          //     ListTile(
+          //       leading: Icon(Icons.chat),
+          //       title: Text('Chat'),
+          //       onTap: () {
+          //         print('chat');
+          //       },
+          //     )
+          //   ]),
+          // )),
           body: PageStorage(
             child: currentScreen,
             bucket: bucket,
