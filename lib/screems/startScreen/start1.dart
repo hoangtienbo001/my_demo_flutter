@@ -1,58 +1,149 @@
-import 'package:demo1_flutter/screems/startScreen/start2.dart';
-import 'package:demo1_flutter/widgets/big_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../../static/colors.dart';
-import '../../utils/theme.dart';
+import 'ani.dart';
 
-class Start1 extends StatelessWidget {
+class Start1 extends StatefulWidget {
   const Start1({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final size = context.screenSize;
+  State<Start1> createState() => _Start1State();
+}
 
+class _Start1State extends State<Start1> with TickerProviderStateMixin {
+  late Animation _arrowAniation, _heartAnimation;
+  late AnimationController _arrowAnimationController, _heartAnimationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _arrowAnimationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    _arrowAniation =
+        Tween(begin: 0.0, end: 3.14).animate(_arrowAnimationController);
+
+    //
+    _heartAnimationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 1200));
+    _heartAnimation = Tween(begin: 150.0, end: 170.0).animate(CurvedAnimation(
+        curve: Curves.bounceOut, parent: _heartAnimationController));
+
+    _heartAnimationController.addStatusListener((AnimationStatus status) {
+      if (status == AnimationStatus.completed) {
+        _heartAnimationController.repeat();
+      }
+    });
+  }
+
+    @override
+  void dispose() {
+    super.dispose();
+    _arrowAnimationController?.dispose();
+    _heartAnimationController?.dispose();
+  }
+
+@override
+  Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        // Header(),
-        Padding(
-          padding: const EdgeInsets.only(top: 50),
-          child: Container(
-            height: 500,
-            child: BigText(text: 'Wellcome'),
+      appBar: AppBar(
+        title: Text('Example Animations'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          firstChild(),
+          SizedBox(
+            height: 50.0,
+          ),
+          secondChild(),
+                    OutlinedButton(
+            // color: Colors.white,
+            // textColor: Colors.black,
+            // padding: const EdgeInsets.all(12.0),
+            child: Text('Start Container Animation'),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AnimatedScreen()));
+            },
+            // splashColor: Colors.red,
+          )
+        ],
+      ),
+    );
+}
+
+  Widget secondChild() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        Expanded(
+          child: AnimatedBuilder(
+            animation: _heartAnimationController,
+            builder: (context, child) {
+              return Center(
+                child: Container(
+                  child: Center(
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                      size: _heartAnimation.value,
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
-        Align(
-          alignment: const Alignment(0.0, 1.0),
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed('$Start2');
-            },
-            child: Text('Next to continue'),
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(AppColors.mainColor),
-              shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(38),
-                ),
-              ),
-              elevation: MaterialStateProperty.all(0),
-              fixedSize: MaterialStateProperty.all(
-                Size(
-                  size.width * 0.5,
-                  size.height * 0.01,
-                ),
-              ),
-              foregroundColor: MaterialStateProperty.all(kColorDarkGrey),
-              textStyle: MaterialStateProperty.all(
-                PrimaryFont.medium(size.height * 0.015),
-              ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(right: 12.0),
+            child: OutlinedButton(
+              // padding: const EdgeInsets.all(12.0),
+              // color: Colors.white,
+              // textColor: Colors.black,
+              child: Text('Start Beating Heart Animation'),
+              onPressed: () {
+                _heartAnimationController.forward();
+              },
+              // splashColor: Colors.red,
             ),
           ),
         )
-      ]),
+      ],
+    );
+  }
+
+
+  Widget firstChild() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        AnimatedBuilder(
+          animation: _arrowAnimationController,
+          builder: (context, child) => Transform.rotate(
+            angle: _arrowAniation.value,
+            child: Icon(
+              Icons.expand_more,
+              size: 50.0,
+              color: Colors.black,
+            ),
+          ),
+        ),
+        OutlinedButton(
+          // color: Colors.white,
+          // textColor: Colors.black,
+          // padding: const EdgeInsets.all(12.0),
+          child: Text('Start Icon Animation'),
+          onPressed: () {
+            _arrowAnimationController.isCompleted
+                ? _arrowAnimationController.reverse()
+                : _arrowAnimationController.forward();
+          },
+          // splashColor: Colors.red,
+        )
+      ],
     );
   }
 }

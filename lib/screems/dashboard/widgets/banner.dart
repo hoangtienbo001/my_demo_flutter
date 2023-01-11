@@ -2,9 +2,14 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
 class MyBanner extends StatelessWidget {
-  const MyBanner({
+  List listImage=List.empty();
+  MyBanner( {
     Key? key,
+    // this.listImage=listImage;
+      required this.listImage,
+
   }) : super(key: key);
+  // List listImage=listImage;
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +26,7 @@ class MyBanner extends StatelessWidget {
                 dotPosition: DotPosition.bottomCenter,
                 dotColor: Colors.white,
                 dotBgColor: Colors.purple.withOpacity(0),
-                images: [
-                  Image.asset(
-                    'assets/image/anh1.jpg',
-                    fit: BoxFit.cover,
-                  ),
-                  Image.asset(
-                    'assets/image/anh2.png',
-                    fit: BoxFit.cover,
-                  ),Image.asset(
-                    'assets/image/anh3.jpg',
-                    fit: BoxFit.cover,
-                  )
-                ],
+                images: listImage,
               ),
             )
           ],
